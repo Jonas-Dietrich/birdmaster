@@ -1,24 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import BirdOverview from "./views/bird-overview/BirdOverview";
+import {IBird} from "./common/models/bird.model";
+import {birdsMockDate} from "./common/mock-data";
 
 function App() {
+  const [birds, setBirds] = useState<IBird[]>(birdsMockDate);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BirdOverview birds={birds}></BirdOverview>
+    <BirdOverview birds={birds}></BirdOverview>
     </div>
   );
 }
